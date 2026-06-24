@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASOFA | صيانة وإصلاح الأوناش والمعدات الثقيلة والوير</title>
+    
+    <!-- Google Fonts: Tajawal for professional Arabic typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0f172a', /* Dark Blue - Slate 900 - Trust & Corporate */
+                        secondary: '#1e293b', /* Lighter Dark Blue - Slate 800 */
+                        accent: '#f97316', /* Orange 500 - Energy, Innovation & Heavy Machinery */
+                        accentDark: '#ea580c', /* Orange 600 */
+                        light: '#f3f4f6', /* Gray 100 */
+                        darkGray: '#4b5563', /* Gray 600 */
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS for animations and specific styling -->
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f8fafc;
+        }
+        /* Realistic Background Images from Unsplash */
+        .hero-bg {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1541888081695-88544f5b5b03?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .engineer-bg {
+            background-image: linear-gradient(to left, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(249, 115, 22, 0.2), 0 8px 10px -6px rgba(249, 115, 22, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(to left, #f97316, #fb923c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .pulse-btn {
+            box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(249, 115, 22, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #0f172a; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #f97316; }
+    </style>
+</head>
+<body class="text-gray-800 antialiased overflow-x-hidden">
+
+    <!-- Navigation Bar -->
+    <header class="fixed w-full z-50 bg-primary/95 backdrop-blur-md shadow-lg transition-all duration-300 border-b border-white/10" id="navbar">
+        <!-- Top Info Bar -->
+        <div class="hidden md:block bg-accent/10 border-b border-white/5 py-2">
+            <div class="container mx-auto px-6 flex justify-between items-center text-sm text-gray-300">
+                <div class="flex gap-6">
+                    <span><i class="fa-solid fa-clock text-accent mr-1"></i> خدمة طوارئ 24/7</span>
+                    <span><i class="fa-solid fa-location-dot text-accent mr-1"></i> نخدم جميع المناطق الصناعية والإنشائية</span>
+                </div>
+                <div class="flex items-center gap-2 font-bold text-white bg-accent px-4 py-1 rounded-full">
+                    <i class="fa-solid fa-phone-volume animate-bounce"></i>
+                    <a href="tel:01000674756" dir="ltr">01000674756</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-gears text-accent text-3xl"></i>
+                <a href="#" class="text-3xl font-black text-white tracking-wider">ASOFA<span class="text-accent">.</span></a>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <nav class="hidden lg:flex space-x-8 space-x-reverse items-center">
+                <a href="#about" class="text-gray-300 hover:text-accent font-semibold transition-colors">من نحن</a>
+                <a href="#services" class="text-gray-300 hover:text-accent font-semibold transition-colors">خدماتنا</a>
+                <a href="#expertise" class="text-gray-300 hover:text-accent font-semibold transition-colors">القيادة الهندسية</a>
+                <a href="#projects" class="text-gray-300 hover:text-accent font-semibold transition-colors">مشاريعنا</a>
+                <a href="#quality" class="text-gray-300 hover:text-accent font-semibold transition-colors">الجودة</a>
+                <a href="tel:01000674756" class="bg-accent hover:bg-accentDark text-white px-6 py-2 rounded-md font-bold transition-all shadow-md hover:shadow-lg flex items-center gap-2 pulse-btn">
+                    <i class="fa-solid fa-phone"></i> اتصل الآن
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button & Quick Call -->
+            <div class="flex items-center gap-4 lg:hidden">
+                <a href="tel:01000674756" class="text-accent bg-white/10 p-2 rounded-full font-bold">
+                    <i class="fa-solid fa-phone"></i>
+                </a>
+                <button id="mobile-menu-btn" class="text-white text-2xl focus:outline-none">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center pt-32 pb-20">
+        <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="text-right z-10">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/50 text-accent font-bold mb-6 backdrop-blur-sm">
+                    <span class="relative flex h-3 w-3">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-3 w-3 bg-accent"></span>
+                    </span>
+                    خبراء صيانة المعدات الثقيلة في مصر
+                </div>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-6 drop-shadow-lg">
+                    الرواد في صيانة <span class="gradient-text">الأوناش</span> وأنظمة الرفع الصناعية
+                </h1>
+                <p class="text-gray-200 text-lg md:text-xl mb-8 leading-relaxed max-w-xl font-medium drop-shadow-md">
+                    شركة ASOFA تقدم حلولاً هندسية متكاملة لضمان كفاءة تشغيل الأوناش البرجية، المتحركة، العلوية، وتغيير أسلاك الوير (Wire Ropes) بأعلى معايير السلامة المهنية.
+                </p>
+                <div class="flex flex-wrap gap-4 items-center">
+                    <a href="tel:01000674756" class="bg-accent hover:bg-accentDark text-white px-8 py-4 rounded-md font-bold text-lg transition-all shadow-[0_0_20px_rgba(249,115,22,0.4)] hover:shadow-accent flex items-center gap-3">
+                        <i class="fa-solid fa-phone-volume text-xl"></i> 01000674756
+                    </a>
+                    <a href="#services" class="bg-primary/50 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-primary px-8 py-4 rounded-md font-bold text-lg transition-all">
+                        استكشف خدماتنا
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hidden lg:block z-10 relative">
+                <!-- Decorative Frame -->
+                <div class="absolute inset-0 border-4 border-accent/40 rounded-lg transform translate-x-4 translate-y-4"></div>
+                <!-- Realistic Image of Heavy Crane/Wire Rope -->
+                <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=800&auto=format&fit=crop" alt="صيانة المعدات والتروس الميكانيكية" class="rounded-lg shadow-2xl w-full h-[500px] object-cover relative z-10 border border-gray-700">
+                
+                <!-- Floating Support Badge -->
+                <div class="absolute -bottom-8 -right-8 bg-white p-6 rounded-xl shadow-2xl z-20 border-t-4 border-accent flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
+                    <div class="w-14 h-14 bg-primary text-accent rounded-full flex items-center justify-center text-2xl">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 text-sm font-bold">بقيادة م. أحمد توحيد</p>
+                        <p class="text-2xl font-black text-primary">اعتماد وجودة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white relative">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <div class="flex items-center gap-3 mb-2">
+                        <i class="fa-solid fa-building text-accent"></i>
+                        <h2 class="text-sm font-bold text-gray-500 tracking-widest uppercase">نبذة عن الشركة</h2>
+                    </div>
+                    <h3 class="text-3xl md:text-5xl font-black text-primary mb-6 leading-tight">قوة هندسية يعتمد عليها في القطاع الصناعي</h3>
+                    
+                    <p class="text-gray-600 text-lg leading-relaxed mb-4 text-justify">
+                        شركة <strong class="text-primary text-xl">ASOFA</strong> هي كيان هندسي رائد وموثوق، متخصص في تقديم الحلول الشاملة لصيانة وإصلاح الأوناش (البرجية، المتحركة، العلوية) والمعدات الثقيلة. ندرك تماماً أن الوقت هو العامل الأهم في القطاعات الصناعية والمقاولات، لذا نكرس خبراتنا الهندسية لتقليل فترات التوقف المفاجئ (Downtime) وضمان عودة المعدات للعمل بأعلى مستويات الكفاءة والأمان.
+                    </p>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-8 text-justify">
+                        تعتمد الشركة على أحدث التقنيات التكنولوجية في الفحص الفني، وتشخيص الأعطال المعقدة في الأنظمة الميكانيكية والهيدروليكية، بالإضافة إلى التميز في فحص وتوريد وتركيب <strong>أسلاك الوير (Wire Ropes)</strong> بدقة متناهية لتأمين عمليات الرفع الثقيل، وذلك تحت إشراف هندسي صارم.
+                    </p>
+                    
+                    <div class="grid sm:grid-cols-2 gap-6 mt-8">
+                        <div class="bg-gray-50 p-6 rounded-xl border-r-4 border-accent card-hover">
+                            <div class="text-accent text-3xl mb-4"><i class="fa-solid fa-eye"></i></div>
+                            <h4 class="text-xl font-bold text-primary mb-2">رؤيتنا</h4>
+                            <p class="text-gray-600 text-sm leading-relaxed">أن نكون الخيار الأول والأكثر موثوقية في مصر والشرق الأوسط كخبراء معتمدين في صيانة أنظمة الرفع الصناعية الثقيلة.</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl border-r-4 border-primary card-hover">
+                            <div class="text-primary text-3xl mb-4"><i class="fa-solid fa-bullseye"></i></div>
+                            <h4 class="text-xl font-bold text-primary mb-2">رسالتنا</h4>
+                            <p class="text-gray-600 text-sm leading-relaxed">تقديم خدمات فنية وهندسية فائقة الجودة تضمن استمرارية الإنتاج وسلامة الأرواح والمعدات بأعلى المعايير الدولية.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4 h-full">
+                    <!-- Realistic Construction Image -->
+                    <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=600&auto=format&fit=crop" alt="Industrial Work" class="rounded-xl shadow-lg w-full h-full object-cover mt-8 border-4 border-white">
+                    <!-- Realistic Wire Rope / Hook Image -->
+                    <img src="https://images.unsplash.com/photo-1518534035914-72213791cb61?q=80&w=600&auto=format&fit=crop" alt="Steel Wire Rope Hook" class="rounded-xl shadow-lg w-full h-full object-cover border-4 border-white">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-light">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-4xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm text-accent font-bold mb-4">
+                    <i class="fa-solid fa-wrench"></i> خدماتنا المتخصصة
+                </div>
+                <h3 class="text-4xl md:text-5xl font-black text-primary mb-6">حلول هندسية متكاملة لجميع أنواع أنظمة الرفع</h3>
+                <p class="text-gray-600 text-lg">نقدم طيفاً واسعاً من الخدمات الفنية المصممة خصيصاً لتلبية متطلبات بيئات العمل الشاقة في المصانع، الموانئ، ومواقع الإنشاءات الكبرى.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 border-b-4 hover:border-accent card-hover transition-all group">
+                    <div class="w-16 h-16 bg-blue-50 text-primary rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:bg-accent group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-microscope"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-primary mb-3">تشخيص الأعطال الميكانيكية</h4>
+                    <p class="text-gray-600 leading-relaxed">فحص دقيق وشامل للأنظمة الميكانيكية والهيدروليكية باستخدام أحدث المعدات لتحديد جذور المشكلة المعقدة والتعامل معها فوراً.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 border-b-4 hover:border-accent card-hover transition-all group">
+                    <div class="w-16 h-16 bg-blue-50 text-primary rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:bg-accent group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-link"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-primary mb-3">فحص وتغيير أسلاك الوير</h4>
+                    <p class="text-gray-600 leading-relaxed">توفير وفحص وتغيير أسلاك الوير (Wire Ropes) الصلبة والخطافات والبكرات وفقاً لمعايير الرفع الآمن وتجنب الانقطاعات الكارثية.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 border-b-4 hover:border-accent card-hover transition-all group">
+                    <div class="w-16 h-16 bg-blue-50 text-primary rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:bg-accent group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-primary mb-3">الإصلاحات الطارئة الميدانية</h4>
+                    <p class="text-gray-600 leading-relaxed">فرق طوارئ هندسية جاهزة للتدخل السريع في مواقع العمل لإنقاذ الموقف وإصلاح الأعطال الحرجة التي توقف خطوط الإنتاج.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 border-b-4 hover:border-accent card-hover transition-all group">
+                    <div class="w-16 h-16 bg-blue-50 text-primary rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:bg-accent group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-primary mb-3">الصيانة الدورية والوقائية</h4>
+                    <p class="text-gray-600 leading-relaxed">برامج وجداول صيانة معتمدة لضمان استمرارية العمل، ومنع الأعطال قبل حدوثها، مما يطيل العمر الافتراضي للمعدات الثقيلة.</p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 border-b-4 hover:border-accent card-hover transition-all group">
+                    <div class="w-16 h-16 bg-blue-50 text-primary rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:bg-accent group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-cogs"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-primary mb-3">توريد وتركيب قطع الغيار</h4>
+                    <p class="text-gray-600 leading-relaxed">توفير قطع غيار أصلية ومطابقة لمواصفات الشركات المصنعة للأوناش، وتركيبها باحترافية لضمان الأداء الأقصى.</p>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 border-b-4 hover:border-accent card-hover transition-all group">
+                    <div class="w-16 h-16 bg-blue-50 text-primary rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:bg-accent group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-shield-cat"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-primary mb-3">اختبارات السلامة والأحمال</h4>
+                    <p class="text-gray-600 leading-relaxed">إجراء الفحوصات الفنية واختبارات الأحمال الديناميكية والاستاتيكية للتأكد من مطابقة الونش لاشتراطات السلامة الصارمة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Spotlight: Eng. Ahmed Tawheed Hendawy -->
+    <section id="expertise" class="engineer-bg relative py-24 text-white overflow-hidden">
+        <div class="absolute inset-0 bg-primary/90"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-4 relative order-2 lg:order-1 mt-10 lg:mt-0">
+                    <div class="absolute inset-0 bg-accent transform translate-x-4 translate-y-4 rounded-xl z-0"></div>
+                    <!-- Professional Engineer Image Placeholder (Realistic) -->
+                    <img src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?q=80&w=600&auto=format&fit=crop" alt="المهندس أحمد توحيد هنداوي" class="relative z-10 rounded-xl shadow-2xl w-full border-4 border-white object-cover aspect-[3/4]">
+                    <div class="absolute -bottom-6 right-6 bg-white text-primary p-5 rounded-lg shadow-xl z-20 border-r-4 border-accent">
+                        <p class="font-black text-xl mb-1">قيادة وإشراف هندسي</p>
+                        <p class="text-gray-600 text-sm font-bold">100% موثوقية</p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-8 order-1 lg:order-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-12 h-1 bg-accent block"></span>
+                        <h2 class="text-accent font-bold text-xl tracking-wide uppercase">القيادة الهندسية لشركة ASOFA</h2>
+                    </div>
+                    <h3 class="text-4xl md:text-5xl font-black mb-4 leading-tight">
+                        المهندس الميكانيكي <br>
+                        <span class="text-accent text-5xl md:text-6xl mt-2 block">أحمد توحيد هنداوي</span>
+                    </h3>
+                    <h4 class="text-xl md:text-2xl text-gray-300 mb-8 font-semibold border-b border-white/20 pb-4 inline-block">
+                        الركيزة الأساسية في تحليل الأنظمة الميكانيكية وصيانة معدات الرفع
+                    </h4>
+                    
+                    <p class="text-gray-200 text-lg leading-relaxed mb-8 text-justify">
+                        يعتبر المهندس <strong>أحمد توحيد هنداوي</strong> المحرك الأساسي والعقل المدبر للنجاحات التقنية في شركة ASOFA. بفضل خبرته العميقة والطويلة في الهندسة الميكانيكية، يمتلك قدرة استثنائية على تحليل أشد الأعطال تعقيداً في أنظمة الرفع، الهيدروليك، والمعدات الثقيلة. يشرف شخصياً على تنفيذ العمليات الدقيقة لضمان أعلى جودة ممكنة.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mt-4">
+                        <div class="flex gap-4 items-start">
+                            <div class="bg-white/10 p-3 rounded-lg text-accent text-2xl"><i class="fa-solid fa-brain"></i></div>
+                            <div>
+                                <h5 class="text-xl font-bold mb-2">تحليل متقدم للأعطال</h5>
+                                <p class="text-gray-400 text-sm leading-relaxed">رؤية هندسية ثاقبة لتشخيص المشاكل المعقدة في التروس وأنظمة الحركة، ووضع حلول فنية جذرية تمنع تكرار العطل وتوفر التكلفة.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="bg-white/10 p-3 rounded-lg text-accent text-2xl"><i class="fa-solid fa-users-gear"></i></div>
+                            <div>
+                                <h5 class="text-xl font-bold mb-2">إشراف وقيادة ميدانية</h5>
+                                <p class="text-gray-400 text-sm leading-relaxed">التواجد في مواقع الإنشاءات والمصانع لقيادة فرق الصيانة وتوجيه الفنيين لضمان تنفيذ العمليات وفق المعايير الهندسية الدقيقة.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="bg-white/10 p-3 rounded-lg text-accent text-2xl"><i class="fa-solid fa-layer-group"></i></div>
+                            <div>
+                                <h5 class="text-xl font-bold mb-2">خبرة بالأنظمة الحديثة</h5>
+                                <p class="text-gray-400 text-sm leading-relaxed">معرفة واسعة بأنظمة التحكم الحديثة، الدوائر الهيدروليكية، وأساليب الفحص المتقدمة لأسلاك الوير والأوناش التلسكوبية والبرجية.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="bg-white/10 p-3 rounded-lg text-accent text-2xl"><i class="fa-solid fa-helmet-safety"></i></div>
+                            <div>
+                                <h5 class="text-xl font-bold mb-2">أولوية السلامة المهنية</h5>
+                                <p class="text-gray-400 text-sm leading-relaxed">التزام صارم وحازم بتطبيق معايير السلامة المهنية الدولية (HSE) لحماية الأرواح، المعدات، والممتلكات أثناء عمليات الصيانة.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects and Achievements Section -->
+    <section id="projects" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-sm font-bold text-accent tracking-widest uppercase mb-2">معرض الأعمال</h2>
+                <h3 class="text-4xl font-black text-primary mb-6">المشاريع والإنجازات الميدانية</h3>
+                <p class="text-gray-600 text-lg">لقطات من بيئة العمل الواقعية تعكس احترافية فريقنا في الورش الصناعية ومواقع الإنشاءات.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project Image 1 -->
+                <div class="relative group overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1503594384566-461fe158e797?q=80&w=800&auto=format&fit=crop" alt="صيانة أوناش برجية" class="w-full h-72 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-white font-bold text-xl mb-1">صيانة الأوناش البرجية</h4>
+                        <p class="text-accent text-sm">مواقع الإنشاءات الكبرى</p>
+                    </div>
+                </div>
+                
+                <!-- Project Image 2 -->
+                <div class="relative group overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop" alt="ورشة صيانة ميكانيكية" class="w-full h-72 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-white font-bold text-xl mb-1">عمرات ميكانيكية شاملة</h4>
+                        <p class="text-accent text-sm">تأهيل وصيانة التروس والمحركات</p>
+                    </div>
+                </div>
+
+                <!-- Project Image 3 -->
+                <div class="relative group overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1541888081695-88544f5b5b03?q=80&w=800&auto=format&fit=crop" alt="أوناش متحركة" class="w-full h-72 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-white font-bold text-xl mb-1">فحص الأوناش المتحركة</h4>
+                        <p class="text-accent text-sm">اختبارات الأداء والهيدروليك</p>
+                    </div>
+                </div>
+
+                <!-- Project Image 4 -->
+                <div class="relative group overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1532098670498-3561a337ab1f?q=80&w=800&auto=format&fit=crop" alt="أسلاك الوير" class="w-full h-72 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-white font-bold text-xl mb-1">استبدال أسلاك الوير</h4>
+                        <p class="text-accent text-sm">تأمين أحمال الرفع (Wire Ropes)</p>
+                    </div>
+                </div>
+
+                <!-- Project Image 5 -->
+                <div class="relative group overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1615811361523-6bd03d7748e7?q=80&w=800&auto=format&fit=crop" alt="صيانة المعدات الثقيلة" class="w-full h-72 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-white font-bold text-xl mb-1">أعطال المعدات الثقيلة</h4>
+                        <p class="text-accent text-sm">تدخل سريع للإصلاحات الطارئة</p>
+                    </div>
+                </div>
+
+                <!-- Project Image 6 -->
+                <div class="relative group overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?q=80&w=800&auto=format&fit=crop" alt="صيانة صناعية" class="w-full h-72 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-white font-bold text-xl mb-1">تطوير كفاءة التشغيل</h4>
+                        <p class="text-accent text-sm">الأنظمة الميكانيكية الحديثة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality and Safety -->
+    <section id="quality" class="py-20 bg-light border-y border-gray-200">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-sm font-bold text-accent tracking-widest uppercase mb-2">التزامنا</h2>
+            <h3 class="text-3xl md:text-4xl font-black text-primary mb-12">معايير الجودة والسلامة الصارمة</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform">
+                    <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center text-primary text-4xl mb-6 border-2 border-primary/10">
+                        <i class="fa-solid fa-medal"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-primary mb-3">جودة لا تساوم</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">استخدام قطع غيار أصلية ومواد معتمدة عالمياً لضمان كفاءة المعدة وعمرها الافتراضي.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform">
+                    <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center text-primary text-4xl mb-6 border-2 border-primary/10">
+                        <i class="fa-solid fa-hard-hat"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-primary mb-3">سلامة الفريق والموقع</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">تطبيق بروتوكولات الأمان الصارمة في كل خطوة لمنع الحوادث في مواقع العمل الخطرة.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform">
+                    <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center text-primary text-4xl mb-6 border-2 border-primary/10">
+                        <i class="fa-solid fa-weight-hanging"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-primary mb-3">دقة اختبارات الأحمال</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">فحص المعدات وأسلاك الوير تحت أحمال تشغيلية لضمان قدرتها على أداء مهامها بأمان.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform">
+                    <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center text-primary text-4xl mb-6 border-2 border-primary/10">
+                        <i class="fa-solid fa-handshake-angle"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-primary mb-3">شراكة مبنية على الثقة</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">الالتزام بالمواعيد المحددة وتقديم تقارير فنية شفافة تبني علاقات طويلة الأمد مع عملائنا.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us & Stats -->
+    <section class="py-24 bg-primary relative overflow-hidden">
+        <!-- Abstract gear decoration -->
+        <i class="fa-solid fa-gear absolute -right-32 -top-32 text-[400px] text-white opacity-[0.03] animate-spin-slow" style="animation: spin 40s linear infinite;"></i>
+        <i class="fa-solid fa-gear absolute -left-20 -bottom-20 text-[250px] text-accent opacity-[0.05] animate-spin-slow" style="animation: spin 30s linear infinite reverse;"></i>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-sm font-bold text-accent tracking-widest uppercase mb-2">الميزة التنافسية</h2>
+                    <h3 class="text-3xl md:text-5xl font-black text-white mb-8 leading-tight">لماذا تختار <span class="text-accent">ASOFA</span> شريكاً لنجاحك؟</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-5 bg-secondary/80 backdrop-blur-sm p-6 rounded-xl border border-white/10 hover:border-accent/50 transition-colors">
+                            <div class="bg-accent text-white p-4 rounded-lg text-2xl shadow-lg">
+                                <i class="fa-solid fa-stopwatch"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-2">سرعة الاستجابة القصوى</h4>
+                                <p class="text-gray-400 text-sm leading-relaxed">ندرك التكلفة الباهظة لتوقف المعدات (Downtime)، لذا نوفر فرق طوارئ مجهزة للتدخل السريع على مدار الساعة لإنقاذ الموقف وإعادة التشغيل.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-5 bg-secondary/80 backdrop-blur-sm p-6 rounded-xl border border-white/10 hover:border-accent/50 transition-colors">
+                            <div class="bg-accent text-white p-4 rounded-lg text-2xl shadow-lg">
+                                <i class="fa-solid fa-microchip"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-2">أدوات وتقنيات تشخيص متطورة</h4>
+                                <p class="text-gray-400 text-sm leading-relaxed">نواكب أحدث التطورات التكنولوجية في الفحص الهندسي وأدوات القياس الدقيقة لتحديد الأعطال من جذورها بدلاً من الحلول المؤقتة.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-5 bg-secondary/80 backdrop-blur-sm p-6 rounded-xl border border-white/10 hover:border-accent/50 transition-colors">
+                            <div class="bg-accent text-white p-4 rounded-lg text-2xl shadow-lg">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-2">كفاءة هندسية موثوقة</h4>
+                                <p class="text-gray-400 text-sm leading-relaxed">فريق عمل يجمع بين الخبرة الأكاديمية والمهارة الميدانية، تحت الإشراف المباشر والمستمر للمهندس أحمد توحيد هنداوي.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="bg-accent text-white p-8 rounded-2xl text-center shadow-xl transform translate-y-6">
+                        <i class="fa-solid fa-building-circle-check text-5xl mb-4 opacity-90"></i>
+                        <h4 class="text-5xl font-black mb-2">+500</h4>
+                        <p class="font-bold text-lg">مهمة صيانة ناجحة</p>
+                    </div>
+                    <div class="bg-white text-primary p-8 rounded-2xl text-center shadow-xl mb-6">
+                        <i class="fa-solid fa-crane text-5xl mb-4 text-accent"></i>
+                        <h4 class="text-5xl font-black mb-2">+150</h4>
+                        <p class="font-bold text-gray-600 text-lg">ونش ومعدة ثقيلة</p>
+                    </div>
+                    <div class="bg-secondary border border-white/10 text-white p-8 rounded-2xl text-center shadow-xl col-span-2 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-accent/5"></div>
+                        <div class="relative z-10 flex flex-col items-center justify-center">
+                            <i class="fa-solid fa-phone-volume text-4xl mb-4 text-accent animate-pulse"></i>
+                            <h4 class="text-2xl font-bold mb-2 text-gray-300">لطلب التدخل السريع</h4>
+                            <a href="tel:01000674756" class="text-4xl font-black text-white hover:text-accent transition-colors" dir="ltr">01000674756</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-5xl font-black text-primary mb-4">تواصل مع خبرائنا الآن</h2>
+                <p class="text-gray-600 text-lg">نحن هنا للإجابة على استفساراتكم وتقديم الدعم الفني لمعداتكم. لا تتردد في التواصل للحصول على استشارة هندسية أو طلب خدمة طارئة.</p>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+                <div class="grid lg:grid-cols-5">
+                    <!-- Contact Info Sidebar -->
+                    <div class="bg-primary text-white p-10 lg:col-span-2 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-accent rounded-full blur-3xl opacity-20 -mr-32 -mt-32"></div>
+                        
+                        <h3 class="text-3xl font-black mb-8 relative z-10">بيانات التواصل</h3>
+                        
+                        <div class="space-y-8 relative z-10">
+                            <!-- Huge Highlighted Phone Number -->
+                            <div class="bg-white/10 p-6 rounded-2xl border border-white/20 transform hover:scale-105 transition-transform">
+                                <p class="text-sm text-accent font-bold mb-2">رقم الهاتف الرئيسي (متاح 24/7)</p>
+                                <a href="tel:01000674756" class="flex items-center gap-4 text-white hover:text-accent transition-colors group">
+                                    <div class="w-14 h-14 bg-accent group-hover:bg-white group-hover:text-accent rounded-full flex items-center justify-center text-2xl transition-colors pulse-btn">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </div>
+                                    <span class="font-black text-3xl tracking-wider" dir="ltr">01000674756</span>
+                                </a>
+                            </div>
+                            
+                            <div class="flex items-start gap-5">
+                                <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-accent text-xl shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400 mb-1">البريد الإلكتروني</p>
+                                    <p class="font-bold text-lg">info@asofa-eng.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-5">
+                                <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-accent text-xl shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400 mb-1">الإدارة والمقر الرئيسي</p>
+                                    <p class="font-bold text-lg leading-relaxed">المنطقة الصناعية، جمهورية مصر العربية<br>نغطي جميع مواقع العمل والموانئ.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Icons -->
+                        <div class="mt-12 flex gap-4 relative z-10">
+                            <a href="#" class="w-12 h-12 bg-white/10 hover:bg-accent hover:-translate-y-1 rounded-xl flex items-center justify-center text-xl transition-all">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-white/10 hover:bg-accent hover:-translate-y-1 rounded-xl flex items-center justify-center text-xl transition-all">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-white/10 hover:bg-accent hover:-translate-y-1 rounded-xl flex items-center justify-center text-xl transition-all">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="p-10 lg:p-14 lg:col-span-3">
+                        <h3 class="text-2xl font-bold text-primary mb-6">أرسل طلب صيانة أو استفسار فني</h3>
+                        <form onsubmit="event.preventDefault(); showMessage();">
+                            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-bold mb-2">اسم المسؤول / المهندس</label>
+                                    <input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-4 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all" placeholder="الاسم بالكامل" required>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-bold mb-2">رقم الهاتف للتواصل</label>
+                                    <input type="tel" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-4 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all" placeholder="رقم الهاتف" required>
+                                </div>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-gray-700 text-sm font-bold mb-2">اسم الشركة / المصنع</label>
+                                <input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-4 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all" placeholder="اسم الشركة">
+                            </div>
+                            <div class="mb-8">
+                                <label class="block text-gray-700 text-sm font-bold mb-2">وصف العطل أو الخدمة المطلوبة (أوناش، وير، الخ...)</label>
+                                <textarea rows="5" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-4 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all" placeholder="برجاء توضيح نوع المعدة والمشكلة باختصار..." required></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-primary hover:bg-secondary text-white font-black text-lg py-5 rounded-xl transition-colors flex justify-center items-center gap-3 shadow-lg hover:shadow-xl">
+                                إرسال الطلب للقسم الهندسي <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </form>
+                        <!-- Form feedback message -->
+                        <div id="form-message" class="hidden mt-6 p-4 bg-green-50 border border-green-200 text-green-800 rounded-xl text-center font-bold flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-circle-check text-xl"></i> تم استلام رسالتك بنجاح. سيقوم الدعم الفني بالتواصل معك في أقرب وقت.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-gray-300 py-16 border-t border-gray-800 relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 border-b border-gray-700 pb-12">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-2 mb-6">
+                        <i class="fa-solid fa-gears text-accent text-3xl"></i>
+                        <span class="text-3xl font-black text-white tracking-wider">ASOFA</span>
+                    </div>
+                    <p class="text-gray-400 max-w-md leading-relaxed mb-6">
+                        الخيار الأول للشركات والمصانع في صيانة الأوناش، توريد وتركيب أسلاك الوير، وإصلاح المعدات الثقيلة. دقة هندسية، موثوقية عالية، وسرعة استجابة بقيادة المهندس <strong>أحمد توحيد هنداوي</strong>.
+                    </p>
+                    <a href="tel:01000674756" class="inline-flex items-center gap-2 text-accent font-bold text-xl hover:text-white transition-colors" dir="ltr">
+                        <i class="fa-solid fa-headset"></i> 01000674756
+                    </a>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6 border-r-2 border-accent pr-3">روابط هامة</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#about" class="hover:text-accent transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-left text-xs"></i> من نحن</a></li>
+                        <li><a href="#services" class="hover:text-accent transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-left text-xs"></i> الخدمات الهندسية</a></li>
+                        <li><a href="#expertise" class="hover:text-accent transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-left text-xs"></i> القيادة الهندسية</a></li>
+                        <li><a href="#projects" class="hover:text-accent transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-left text-xs"></i> معرض المشاريع</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6 border-r-2 border-accent pr-3">أوقات العمل</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex justify-between border-b border-gray-700 pb-2"><span>السبت - الخميس</span> <span>08:00 ص - 05:00 م</span></li>
+                        <li class="flex justify-between border-b border-gray-700 pb-2 text-gray-500"><span>الجمعة</span> <span>مغلق</span></li>
+                        <li class="text-accent mt-4 font-black flex items-center gap-2 bg-accent/10 p-3 rounded-lg border border-accent/20">
+                            <i class="fa-solid fa-truck-medical text-lg"></i> فرق الطوارئ جاهزة 24/7
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 gap-4">
+                <p>&copy; 2024 جميع الحقوق محفوظة لشركة <strong class="text-gray-400">ASOFA</strong> للصيانة الهندسية.</p>
+                <p>تم التصميم باحترافية للقطاع الصناعي.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Form submission simulation
+        function showMessage() {
+            const msg = document.getElementById('form-message');
+            msg.classList.remove('hidden');
+            msg.classList.add('animate-bounce');
+            setTimeout(() => {
+                msg.classList.remove('animate-bounce');
+                setTimeout(() => msg.classList.add('hidden'), 500);
+            }, 5000);
+        }
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const nav = document.querySelector('nav');
+            if (nav.classList.contains('hidden')) {
+                nav.classList.remove('hidden', 'lg:flex');
+                nav.classList.add('flex', 'flex-col', 'absolute', 'top-full', 'left-0', 'w-full', 'bg-primary', 'p-6', 'shadow-2xl', 'gap-4', 'border-t', 'border-gray-800');
+            } else {
+                nav.classList.add('hidden', 'lg:flex');
+                nav.classList.remove('flex', 'flex-col', 'absolute', 'top-full', 'left-0', 'w-full', 'bg-primary', 'p-6', 'shadow-2xl', 'gap-4', 'border-t', 'border-gray-800');
+            }
+        });
+
+        // Add background on scroll for navbar & shrink slightly
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                header.classList.add('bg-primary', 'shadow-xl', 'py-1');
+                header.classList.remove('bg-primary/95');
+            } else {
+                header.classList.remove('bg-primary', 'shadow-xl', 'py-1');
+                header.classList.add('bg-primary/95');
+            }
+        });
+    </script>
+</body>
+  </html>
